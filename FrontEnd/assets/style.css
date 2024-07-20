@@ -22,6 +22,8 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: #FFFEF8;
+	;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -125,6 +127,47 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+#portfolio .filtres {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3em;
+}
+
+.filtres button {
+    border: solid 1px #1D6154;
+	border-radius:60px;
+	height: 37px;
+	font-size: 16px;
+	font-family: Syne;
+}
+
+.filtres .all {
+	width: 100px;
+	background-color: #1D6154;
+	color: #ffff;
+	margin-right: 10px;
+}
+
+.filtres .btn-filtre {
+	color: #1D6154;
+	background-color: #FFFEF8;
+	margin-right: 10px;
+}
+
+.filtres button:nth-child(2) {
+	width: 100px;
+}
+
+.filtres button:nth-child(3) {
+	width: 157px;
+}
+
+.filtres button:nth-child(4) {
+	width: 198px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
