@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        const response = await fetch('http://localhost:5678/api/login', {
+        const response = await fetch('http://localhost:5678/api/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
             const data = await response.json();
-            // Sauvegarder le token et rediriger l'utilisateur
             localStorage.setItem('token', data.token);
             window.location.href = 'index.html'; // Redirection vers la page d'accueil
         } else {
