@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <meta name="description" content="">
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/script.js" defer></script>
+    <script src="./assets/modal.js" defer></script>
 </head>
 <body>
 <header>
@@ -18,7 +20,7 @@
         <ul>
             <li>projets</li>
             <li>contact</li>
-            <li>login</li>
+            <li><a href="login.html">login</a></li>
             <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
         </ul>
     </nav>
@@ -36,7 +38,10 @@
         </article>
     </section>
     <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="portfolio-header">
+            <h2>Mes Projets</h2>
+            <button id="open-modal"><i class="fa-regular fa-pen-to-square"></i> Modifier</button> <!-- Ajout du bouton Modifier avec une icône -->
+        </div>
         <div class="filtres"></div>
         <div class="gallery">
             <!-- Les éléments de la galerie seront ajoutés dynamiquement ici -->
@@ -64,5 +69,20 @@
         </ul>
     </nav>
 </footer>
+
+<!-- Modale -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-gallery">
+            <h3>Galerie photo</h3>
+            <div class="gallery">
+                <!-- Les éléments de la galerie de la modale seront ajoutés dynamiquement ici -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
