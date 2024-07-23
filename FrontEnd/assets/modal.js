@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById("modal");
-    const openModalBtn = document.getElementById("open-modal");
     const closeModalBtn = document.querySelector(".modal .close");
     const modalGallery = document.querySelector(".modal-gallery");
 
