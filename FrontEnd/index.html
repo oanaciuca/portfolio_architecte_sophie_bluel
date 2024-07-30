@@ -70,18 +70,54 @@
     </nav>
 </footer>
 
-<!-- Modale -->
-<div id="modal" class="modal">
+<!-- Modale Galerie -->
+<div id="modal-gallery" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <div class="modal-gallery">
+        <div class="modal-gallery-content">
             <h3>Galerie photo</h3>
-            <div class="gallery">
+            <div id="gallery-container" class="gallery">
                 <!-- Les éléments de la galerie de la modale seront ajoutés dynamiquement ici -->
             </div>
+            <button id="add-photo" class="visible">Ajouter une photo</button> <!-- Bouton pour ajouter une photo -->
         </div>
     </div>
 </div>
+
+
+<!-- Modale Formulaire d'ajout de photo -->
+<div id="modal-form" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-form-content">
+            <form id="ajout-photo-form">
+                <p id="error-message" style="color: red; display: none;"></p>
+                <div>
+                    <p>Ajout photo</p>
+                    <span><i class="fa-regular fa-image"></i></span>
+                    <p>jpg.png:4mo max</p>
+                    <label for="title">Titre</label>
+                    <input type="text" name="title" id="title" required>
+                    <label for="category">Catégorie</label>
+                    <select name="category" id="category" required>
+                        <option value="" disabled selected>Choisissez une catégorie</option>
+                        <option value="objets">Objets</option>
+                        <option value="appartements">Appartements</option>
+                        <option value="hotels&restaurants">Hotels & restaurants</option>
+                    </select>
+                    <label for="image">Fichier</label>
+                    <input type="file" id="image" name="image" accept=".jpg, .png" required>
+                    <button type="submit">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
 
 </body>
