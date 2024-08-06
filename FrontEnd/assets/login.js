@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
+    const error = document.querySelector('.error');
 
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -20,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('token', data.token);
             window.location.href = 'index.html'; // Redirection vers la page d'accueil
         } else {
-            alert('Échec de la connexion. Veuillez vérifier vos identifiants.');
+            error.innerText = 'Identifiant ou mot de passe incorrect';
+            //alert('Échec de la connexion. Veuillez vérifier vos identifiants.');
         }
     });
 });

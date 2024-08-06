@@ -80,10 +80,27 @@ nav ul {
 nav li {
     padding: 0 10px;
     font-size: 1.2em;
+	margin: 0; /* Assurez-vous qu'il n'y a pas de marge supplémentaire */
+    display: flex; /* Assurez-vous que les éléments enfants sont alignés */
+    align-items: center; /* Centrer les éléments enfants verticalement */
 }
+
+nav li a {
+    color: inherit; /* Utilise la couleur du li */
+    text-decoration: none; /* Enlève le soulignement par défaut */
+    font-size: inherit; /* Utilise la taille de police du li */
+    padding: 0; /* Assure qu'il n'y a pas de padding supplémentaire */
+    margin: 0; /* Assure qu'il n'y a pas de marge supplémentaire */
+    display: inline-block; /* Permet de contrôler l'espacement */
+}
+
 
 li:hover {
     color: #B1663C;
+}
+
+nav li:hover a {
+    color: #B1663C; /* Couleur au survol du lien */
 }
 
 /* Styles pour l'introduction */
@@ -368,11 +385,23 @@ footer nav ul {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+	
+
 
 .modal-gallery-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
     overflow-y: auto;
     width: 100%;
     height: 100%;
+}
+
+/* Ligne séparatrice */
+.gallery-separator {
+    border-bottom: 1px solid #b3b3b3; /* Ligne grise clair */
+    width: 100%; /* Étendre sur toute la largeur disponible */
+    margin: 20px 0; /* Espacement autour de la ligne */
 }
 
 #gallery-container {
@@ -394,6 +423,15 @@ footer nav ul {
     object-fit: cover;
 }
 
+.delete-icon {
+    color: red; /* Couleur pour voir les icônes, vous pouvez ajuster selon vos besoins */
+    cursor: pointer; /* Pour indiquer que c'est cliquable */
+	position: absolute; /* ou relative, selon le contexte */
+    top: 10px; /* Ajuster selon vos besoins */
+    right: 10px; /* Ajuster selon vos besoins */
+    background-color: rgba(255, 0, 0, 0.1); /* Fond temporaire pour le débogage */
+}
+
 /* Styles pour le bouton d'ajout de photo */
 #add-photo {
     display: block;
@@ -402,7 +440,7 @@ footer nav ul {
     background-color: #1d6154;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
 }
 
@@ -469,4 +507,77 @@ figure .delete-icon {
     color: white;
 	background-color: black;
 	padding: 5px;
+}
+
+/* Style pour la bande noire contenant l'icône et le texte */
+.edit-mode-banner {
+    background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Style pour les icônes Font Awesome dans la bande noire */
+.edit-mode-banner i {
+    color: white; /* Changer la couleur de l'icône en blanc */
+}
+
+/* Style pour le bouton Logout */
+.edit-mode-banner a {
+    color: white; /* Couleur du texte du bouton Logout */
+    text-decoration: none; /* Retirer le soulignement */
+    margin-left: 10px; /* Espacement entre l'icône et le texte */
+}
+/* Ajoutez ceci dans votre fichier CSS */
+.hidden {
+    display: none;
+}
+
+/* Style pour la bande noire en mode édition */
+.edit-mode-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre les éléments horizontalement */
+    background-color: black; /* Couleur de fond noire */
+    color: white; /* Couleur du texte blanche */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* S'assurer que la bande est au-dessus des autres éléments */
+    font-family: 'Work Sans', sans-serif; /* Police pour le texte */
+}
+
+/* Style pour l'icône */
+.edit-mode-banner i {
+    color: white; /* Couleur de l'icône blanche */
+    background-color: black; /* Couleur de fond de l'icône noire */
+    padding: 5px; /* Ajouter un peu de padding autour de l'icône */
+    border-radius: 50%; /* Arrondir les coins pour faire un cercle autour de l'icône */
+    font-size: 18px; /* Taille de l'icône */
+}
+
+/* Style pour le texte */
+.edit-mode-banner span {
+    background-color: black; /* Couleur de fond du texte noire */
+    padding: 5px; /* Ajouter un peu de padding autour du texte */
+    font-size: 16px; /* Taille du texte */
+}
+
+/* Style pour la flèche de retour dans la modale */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    font-size: 20px; /* Taille de l'icône */
+    cursor: pointer;
+    z-index: 1100; /* Assurer que le bouton est au-dessus des autres éléments */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Largeur du bouton */
+    height: 40px; /* Hauteur du bouton */
 }

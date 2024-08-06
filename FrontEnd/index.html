@@ -11,16 +11,18 @@
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/script.js" defer></script>
-    <script src="./assets/modal.js" defer></script>
+    
 </head>
 <body>
+<div class="edit-mode"></div>
 <header>
     <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
     <nav>
         <ul>
             <li>projets</li>
             <li>contact</li>
-            <li><a href="login.html">login</a></li>
+            <li><a href="login.html" id="login-button">login</a></li>
+            <li><a href="#" id="logout-button" class="hidden">logout</a></li>
             <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
         </ul>
     </nav>
@@ -38,9 +40,8 @@
         </article>
     </section>
     <section id="portfolio">
-        <div class="portfolio-header">
+        <div class="portfolio-header" id="portfolio-header">
             <h2>Mes Projets</h2>
-            <button id="open-modal"><i class="fa-regular fa-pen-to-square"></i> Modifier</button> <!-- Ajout du bouton Modifier avec une icône -->
         </div>
         <div class="filtres"></div>
         <div class="gallery">
@@ -79,6 +80,7 @@
             <div id="gallery-container" class="gallery">
                 <!-- Les éléments de la galerie de la modale seront ajoutés dynamiquement ici -->
             </div>
+            <div class="gallery-separator"></div>
             <button id="add-photo" class="visible">Ajouter une photo</button> <!-- Bouton pour ajouter une photo -->
         </div>
     </div>
@@ -88,10 +90,11 @@
 <!-- Modale Formulaire d'ajout de photo -->
 <div id="modal-form" class="modal">
     <div class="modal-content">
+        <span id="back-to-gallery" class="back-button"><i class="fa-solid fa-arrow-left"></i></span>
         <span class="close">&times;</span>
         <div class="modal-form-content">
-            <form id="ajout-photo-form">
-                <p id="error-message" style="color: red; display: none;"></p>
+            <form id="ajout-photo-form" enctype="multipart/form-data">
+                <p id="error-message"></p>
                 <div>
                     <p>Ajout photo</p>
                     <span><i class="fa-regular fa-image"></i></span>
@@ -106,7 +109,7 @@
                         <option value="hotels&restaurants">Hotels & restaurants</option>
                     </select>
                     <label for="image">Fichier</label>
-                    <input type="file" id="image" name="image" accept=".jpg, .png" required>
+                    <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
                     <button type="submit">Valider</button>
                 </div>
             </form>

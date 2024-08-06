@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtns = document.querySelectorAll(".modal .close");
     const addPhotoBtn = document.getElementById("add-photo");
     const backToGalleryBtn = document.getElementById("back-to-gallery");
+    const loginButton = document.getElementById('login-button');
+    const logoutButton = document.getElementById('logout-button');
 
     // Fonction pour afficher la galerie dans la modale
     const loadGallery = async () => {
@@ -51,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fonction pour ouvrir la modale
     const openModal = (modal) => {
         modal.style.display = "block";
+        document.body.style.overflow = 'hidden'; // Désactiver le défilement de la page
     };
 
     // Fonction pour fermer la modale
     const closeModal = (modal) => {
         modal.style.display = "none";
+        document.body.style.overflow = ''; // Réactiver le défilement de la page
     };
 
     // Ajouter le bouton "Modifier" si l'utilisateur est connecté
@@ -135,6 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Fonction pour gérer la déconnexion
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Supprimer le token du stockage local
+        updateUI(); // Mettre à jour les boutons et l'UI
+        window.location.href = 'index.html'; // Rediriger vers la page d'accueil
+    };
+
     // Événements de clic pour ouvrir et fermer les modales
     closeModalBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -160,19 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
         openModal(modalGallery);
     });
 
+    logoutButton.addEventListener('click', handleLogout);
+
     // Vérifier la connexion et ajouter le bouton "Modifier" si connecté
     const updateUI = () => {
         const token = localStorage.getItem('token');
-        const loginLink = document.getElementById('login-button');
-        const logoutButton = document.getElementById('logout-button');
 
-        if (loginLink && logoutButton) {
+        if (loginButton && logoutButton) {
             if (token) {
-                loginLink.classList.add('hidden');
+                loginButton.classList.add('hidden');
                 logoutButton.classList.remove('hidden');
                 createEditButton(); // Créer le bouton "Modifier"
             } else {
-                loginLink.classList.remove('hidden');
+                loginButton.classList.remove('hidden');
                 logoutButton.classList.add('hidden');
                 const editButton = document.getElementById('open-modal');
                 if (editButton) {
