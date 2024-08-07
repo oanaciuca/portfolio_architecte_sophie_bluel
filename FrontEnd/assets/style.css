@@ -70,6 +70,26 @@ h2 {
     color: #1D6154;
 }
 
+/* header */
+
+.edit-mode{
+    background-color: #000;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.edit-mode button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+
+.edit-mode button i{
+    background-color: transparent;
+    margin-right: 5px;
+}
+
 /* Styles pour les listes de navigation */
 nav ul {
     display: flex;
@@ -92,8 +112,12 @@ nav li a {
     padding: 0; /* Assure qu'il n'y a pas de padding supplémentaire */
     margin: 0; /* Assure qu'il n'y a pas de marge supplémentaire */
     display: inline-block; /* Permet de contrôler l'espacement */
+    cursor: pointer;
 }
 
+nav .logout{
+    display: none;
+}
 
 li:hover {
     color: #B1663C;
@@ -204,8 +228,9 @@ nav li:hover a {
 .gallery {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 }
 
 .gallery figure {
@@ -353,7 +378,7 @@ footer nav ul {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 5% auto; /* Centrer verticalement */
     padding: 20px;
     border: 1px solid #888;
@@ -370,13 +395,20 @@ footer nav ul {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.header-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .modal-content h3 {
@@ -398,10 +430,11 @@ footer nav ul {
 }
 
 /* Ligne séparatrice */
-.gallery-separator {
-    border-bottom: 1px solid #b3b3b3; /* Ligne grise clair */
-    width: 100%; /* Étendre sur toute la largeur disponible */
-    margin: 20px 0; /* Espacement autour de la ligne */
+/* Style pour la ligne de séparation */
+.separator {
+    border: none; /* Retirer la bordure par défaut */
+    border-top: 1px solid #ccc; /* Ajouter une bordure en haut pour créer la ligne */
+    margin: 20px 0; /* Ajouter de l'espace au-dessus et en dessous de la ligne */
 }
 
 #gallery-container {
@@ -423,14 +456,6 @@ footer nav ul {
     object-fit: cover;
 }
 
-.delete-icon {
-    color: red; /* Couleur pour voir les icônes, vous pouvez ajuster selon vos besoins */
-    cursor: pointer; /* Pour indiquer que c'est cliquable */
-	position: absolute; /* ou relative, selon le contexte */
-    top: 10px; /* Ajuster selon vos besoins */
-    right: 10px; /* Ajuster selon vos besoins */
-    background-color: rgba(255, 0, 0, 0.1); /* Fond temporaire pour le débogage */
-}
 
 /* Styles pour le bouton d'ajout de photo */
 #add-photo {
@@ -580,4 +605,157 @@ figure .delete-icon {
     justify-content: center;
     width: 40px; /* Largeur du bouton */
     height: 40px; /* Hauteur du bouton */
+}
+
+
+/* Styles pour le formulaire d'ajout de photo */
+.modal-form-content {
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.btn-back #back-to-gallery {
+    margin: 0;
+    padding: 0;
+}
+
+#ajout-photo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aj-photo {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+.icon i {
+    display: block;
+    text-align: center;
+    font-size: 59.62px;
+    color: #b9c5cc;
+    margin-bottom: 10px;
+}
+
+.plus-ajout ::content {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus-ajout-container {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement le bouton */
+    width: 100%;
+}
+
+.plus-ajout {
+    display: inline-flex;
+    justify-content: center;
+    width: 173px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 50px;
+    background-color: #cbd6dc;
+    color: #306685;
+    border-color: #cbd6dc;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+.plus{
+    background-color: #cbd6dc;
+    margin-right: 5px;
+}
+
+.jpg {
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#ajout-photo-form label {
+    margin-bottom: 5px;
+}
+
+/* Ajouter ce style pour les labels et les champs de texte */
+#ajout-photo-form label[for="title"],
+#ajout-photo-form label[for="category"] {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Conteneur pour les champs de formulaire */
+.form-fields-container {
+    width: 100%; /* Utilise toute la largeur disponible */
+    max-width: 600px; /* Limite la largeur maximale pour les champs */
+}
+
+#ajout-photo-form input[type="text"],
+#ajout-photo-form select {
+    width: 100%;
+    min-width: 420px;
+    height: 51px;
+    min-height: 51px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 0;
+    margin-left: auto; /* Centre horizontalement */
+    margin-right: auto; /* Centre horizontalement */ 
+    background-color: #ffffff;
+}
+
+
+
+
+.button-container {
+    text-align: center; /* Centre le bouton à l'intérieur de la div */
+}
+
+#ajout-photo-form button {
+    border-radius: 50px;
+    width: 237px;
+    font-family: Syne;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#ajout-photo-form button:enabled {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#ajout-photo-form button:disabled {
+    padding: 10px;
+    background-color: #a7a7a7; /* Couleur de fond lorsque le bouton est désactivé */
+    color: #ffffff; /* Couleur du texte lorsque le bouton est désactivé */
+    border: none;
+    cursor: not-allowed; /* Curseur indiquant que le bouton est désactivé */
+}
+
+#ajout-photo-form button:hover {
+    background-color: #218838;
+    display: block;
+    margin: 20px auto;
+}
+
+.modal[aria-hidden="false"] {
+    display: block; /* Afficher lorsque aria-hidden est false */
 }

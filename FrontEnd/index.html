@@ -11,18 +11,18 @@
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/script.js" defer></script>
-    
+    <script src="./assets/modal.js" defer></script>
 </head>
 <body>
-<div class="edit-mode"></div>
+<div class="top"></div>
 <header>
     <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
     <nav>
         <ul>
-            <li>projets</li>
+            <li><a href="index.html">projets</a></li>
             <li>contact</li>
-            <li><a href="login.html" id="login-button">login</a></li>
-            <li><a href="#" id="logout-button" class="hidden">logout</a></li>
+            <li class="login"><a href="login.html">login</a></li>
+            <li class="logout"><a>logout</a></li>
             <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
         </ul>
     </nav>
@@ -40,7 +40,7 @@
         </article>
     </section>
     <section id="portfolio">
-        <div class="portfolio-header" id="portfolio-header">
+        <div class="portfolio-header">
             <h2>Mes Projets</h2>
         </div>
         <div class="filtres"></div>
@@ -80,7 +80,6 @@
             <div id="gallery-container" class="gallery">
                 <!-- Les éléments de la galerie de la modale seront ajoutés dynamiquement ici -->
             </div>
-            <div class="gallery-separator"></div>
             <button id="add-photo" class="visible">Ajouter une photo</button> <!-- Bouton pour ajouter une photo -->
         </div>
     </div>
@@ -90,15 +89,21 @@
 <!-- Modale Formulaire d'ajout de photo -->
 <div id="modal-form" class="modal">
     <div class="modal-content">
-        <span id="back-to-gallery" class="back-button"><i class="fa-solid fa-arrow-left"></i></span>
-        <span class="close">&times;</span>
+        <div class="header-form">
+            <button class="btn-back">
+                <span id="back-to-gallery" class="back-button"><i class="fa-solid fa-arrow-left"></i></span>
+            </button>
+            <span class="close">&times;</span>
+        </div>
         <div class="modal-form-content">
-            <form id="ajout-photo-form" enctype="multipart/form-data">
+            <form id="ajout-photo-form">
                 <p id="error-message"></p>
                 <div>
-                    <p>Ajout photo</p>
-                    <span><i class="fa-regular fa-image"></i></span>
-                    <p>jpg.png:4mo max</p>
+                    <p class="aj-photo">Ajout photo</p>
+                    <span class="icon"><i class="fa-regular fa-image"></i></span>
+                    <div class="plus-ajout-container"><label for="image" class="plus-ajout"><span class="plus">&plus;</span>Ajouter photo</label></div>
+                    <p class="jpg">jpg.png:4mo max</p>
+
                     <label for="title">Titre</label>
                     <input type="text" name="title" id="title" required>
                     <label for="category">Catégorie</label>
@@ -108,20 +113,14 @@
                         <option value="appartements">Appartements</option>
                         <option value="hotels&restaurants">Hotels & restaurants</option>
                     </select>
-                    <label for="image">Fichier</label>
+
                     <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
-                    <button type="submit">Valider</button>
+                    <hr class="separator">
+                    <div class="button-container"><button type="submit">Valider</button></div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 </body>
 </html>
